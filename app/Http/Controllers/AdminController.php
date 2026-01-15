@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function AdminDashboard()
     {
-        return view('admin.index');
+        return view('Admin.index');
     
 } //end method
     public function AdminLogout(Request $request): RedirectResponse
@@ -27,13 +27,13 @@ class AdminController extends Controller
 
     public function AdminLogin()
     {
-        return view('admin.admin_login');
+        return view('Admin.admin_login');
     } //end method
     public function AdminProfile()
     {
         $id = Auth::user()->id;
         $profileData = User::find($id);
-       return view('admin.admin_profile_view', compact('profileData'));
+       return view('Admin.admin_profile_view', compact('profileData'));
     } //end method  
 
     public function AdminLoginSubmit(Request $request) {
