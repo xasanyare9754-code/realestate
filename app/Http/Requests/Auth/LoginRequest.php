@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use App\models\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class LoginRequest extends FormRequest
@@ -57,7 +57,7 @@ class LoginRequest extends FormRequest
                 'login' => trans('auth.failed'),
             ]);
         }
-        auth::login($user,$this->boolean('remember'));
+        Auth::login($user,$this->boolean('remember'));
 
         RateLimiter::clear($this->throttleKey());
     }
